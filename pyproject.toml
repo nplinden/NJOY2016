@@ -24,4 +24,4 @@ build = ["*-manylinux_x86_64"]
 
 [tool.cibuildwheel.linux]
 build-verbosity = 3
-environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON -DCMAKE_EXE_LINKER_FLAGS=-static" }
+environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
