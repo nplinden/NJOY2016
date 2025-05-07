@@ -17,4 +17,5 @@ cmake.args = ["-DCMAKE_BUILD_TYPE=Release"]
 environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON -DCMAKE_BUILD_TYPE=Release" }
 
 [tool.cibuildwheel.macos]
-before-all = ["brew install gfortran"]
+before-all = ["which gfortran"]
+# environment = { "FC" = "/opt/homebrew/bin/gfortran" }
