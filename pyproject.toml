@@ -17,4 +17,4 @@ cmake.args = ["-DCMAKE_BUILD_TYPE=Release"]
 environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
 
 [tool.cibuildwheel.macos]
-environment = { "FC" = "/opt/homebrew/bin/gfortran-14", "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
+environment = { "FC" = "/opt/homebrew/bin/gfortran-14", "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON", "MACOSX_DEPLOYMENT_TARGET" = "14.0" }
