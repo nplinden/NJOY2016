@@ -1,7 +1,7 @@
 [project]
 name = "njoy2016"
 version = "2016.78.0"
-description = "Add your description here"
+description = "The NJOY Nuclear Data Processing System"
 readme = "README.md"
 requires-python = ">=3.11.4"
 dependencies = []
@@ -15,13 +15,7 @@ cmake.args = [
   "-DCMAKE_BUILD_TYPE=Release",
   "-Dstatic_libraries=ON",
   "-Dstatic_njoy=ON",
-  # "-DCMAKE_EXE_LINKER_FLAGS=-static",
 ]
 
-[tool.cibuildwheel]
-build = ["*-manylinux_x86_64"]
-
-
 [tool.cibuildwheel.linux]
-build-verbosity = 3
 environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
