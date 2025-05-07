@@ -11,11 +11,10 @@ requires = ["scikit-build-core"]
 build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
-cmake.args = [
-  "-DCMAKE_BUILD_TYPE=Release",
-  "-Dstatic_libraries=ON",
-  "-Dstatic_njoy=ON",
-]
+cmake.args = [ "-DCMAKE_BUILD_TYPE=Release" ]
 
 [tool.cibuildwheel.linux]
-environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
+environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release" }
+
+[tool.cibuildwheel.macos]
+before-all = "brew install gfortran"
