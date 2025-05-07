@@ -14,7 +14,11 @@ build-backend = "scikit_build_core.build"
 cmake.args = ["-DCMAKE_BUILD_TYPE=Release"]
 
 [tool.cibuildwheel.linux]
-environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
+environment = { "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON -DCMAKE_BUILD_TYPE=Release" }
 
 [tool.cibuildwheel.macos]
-environment = { "FC" = "/opt/homebrew/bin/gfortran-14", "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON", "MACOSX_DEPLOYMENT_TARGET" = "14.0" }
+before-all = [
+    "MACOS_MAJOR=$(sw_vers -productVersion | cut -d '.' -f 1)",
+    "export MACOSX_DEPLOYMENT_TARGET=${MACOS_MAJOR}.0",
+]
+environment = { "FC" = "/opt/homebrew/bin/gfortran-14", "CMAKE_ARGS" = "-DCMAKE_BUILD_TYPE=Release -Dstatic_libraries=ON -Dstatic_njoy=ON" }
