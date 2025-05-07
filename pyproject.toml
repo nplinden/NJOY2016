@@ -1,6 +1,6 @@
 [project]
 name = "njoy2016"
-version = "0.1.0"
+version = "2016.78.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11.4"
@@ -9,6 +9,18 @@ dependencies = []
 [build-system]
 requires = ["scikit-build-core"]
 build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+cmake.args = [
+  "-DCMAKE_BUILD_TYPE=Release",
+  "-Dstatic_libraries=ON",
+  "-Dstatic_njoy=ON",
+  "-DCMAKE_EXE_LINKER_FLAGS=-static",
+]
+
+[tool.cibuildwheel]
+build = ["*-manylinux_x86_64"]
+
 
 [tool.cibuildwheel.linux]
 build-verbosity = 3
