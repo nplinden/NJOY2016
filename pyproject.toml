@@ -1,0 +1,15 @@
+[project]
+name = "njoy2016"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11.4"
+dependencies = []
+
+[build-system]
+requires = ["scikit-build-core"]
+build-backend = "scikit_build_core.build"
+
+[tool.cibuildwheel.linux]
+build-verbosity = 3
+environment = { "CMAKE_ARGS" = "-Dstatic=ON" }
